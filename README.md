@@ -1,6 +1,18 @@
-# RegistrationForm
+# Requirements
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+The registration form has the following fields:
+ - Given Name (required)
+ - Gender (required)
+ - Date of Birth (required)
+ - Street Address (required)
+ - Postal Code (required, Must be a number between 10000 and 99999)
+
+The user should get feedback so they can correct the form.
+
+# Technologies
+
+[Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+[Angular Material](https://material.angular.io/)
 
 ## Development server
 

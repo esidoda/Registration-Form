@@ -1,0 +1,30 @@
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.register-content {
+  padding: 25px 1rem;
+}
+
+.full-width-input {
+  width: 100%;
+}
+  
+.success-message {
+  color: green;
+  padding-top: 10px;
+}
+  
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-form-field {
+  margin-top: 10px
+}
+
+.register-btn {
+  margin-top: 25px
+}

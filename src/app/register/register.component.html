@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+     <span><a href="/"><mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon">home</mat-icon></a></span>
+     <span class="spacer"></span>
+     <a mat-button routerLink="/register">Register</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="register-content">
+    <mat-card class="my-card">
+      <mat-card-content>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <h2>Registration</h2>
+          <mat-form-field class="full-width-input">
+            <mat-label>Given Name</mat-label>
+            <input matInput placeholder="Given name" formControlName="givenName">
+            <mat-error *ngIf="userForm.controls['givenName'].errors?.required">  Please enter the given name. </mat-error> 
+          </mat-form-field>
+         <mat-form-field class="full-width-input">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="genderId">
+            <mat-option *ngFor="let gender of genderList" [value]="gender.id">
+              {{gender.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="userForm.controls['genderId'].errors?.required">  Please select a gender. </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="userForm.controls['birthDate'].errors?.required"> Please enter the date. </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>Street Address</mat-label>
+          <input  matInput  placeholder="Street Address" formControlName="streetAddress">
+          <mat-error *ngIf="userForm.controls['streetAddress'].errors?.required">  Please enter the street address. </mat-error>
+       </mat-form-field>
+       <mat-form-field class="full-width-input">
+        <mat-label>Postal Code</mat-label>
+        <input  matInput  placeholder="Postal Code" formControlName="postalCode">
+        <mat-error *ngIf="userForm.controls['postalCode'].errors?.required"> Please enter the postal code. </mat-error>
+        <mat-error *ngIf="userForm.controls['postalCode'].errors?.pattern"> Please use only numbers. </mat-error>
+        <mat-error *ngIf="userForm.controls['postalCode'].errors?.min || userForm.controls['postalCode'].errors?.max"> Must be a number between 10000 and 99999. </mat-error>
+       </mat-form-field>
+       <div class="register-btn"></div>
+          <button mat-raised-button color="primary" [disabled]="userForm.invalid">Register</button>
+        </form>
+        <p *ngIf='isFormValid' class="success-message" >You have been succesfully registered.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
